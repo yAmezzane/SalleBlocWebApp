@@ -1,0 +1,25 @@
+<h3 class="text-center" style="margin-bottom: 20px; ">  Liste des Blocs</h3>
+<table class="table table-hover text-center">
+    <thead class="thead-primary">
+        <tr>
+            <th>Nom</th>
+            <th>Libelle</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.libelle}}</td>
+            <td >
+                <a class="btn btn-success btn-sm" href="/bloc/{{this._id}}">Modifier</a>
+                <a class="btn btn-primary btn-sm" href="/bloc/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');">Supprimer</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<h3><a class="btn btn-primary align-center btn-block" href="/bloc"><i class="fa fa-plus"></i> Ajouter un Bloc</a></h3>
+<a class="btn btn-primary btn-block" href="/salle/list"><i class="fa fa-list-alt"></i>  liste des Salles</a>
+

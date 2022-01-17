@@ -1,0 +1,24 @@
+<h3 class="text-center" style="margin-bottom: 20px; ">  Ajouter un Nouveau Bloc</h3>
+
+<form action="/bloc" method="POST" >
+    <input type="hidden" name="_id" value="{{bloc._id}}">
+    <div class="form-group">
+        <label> Nom : </label>
+        <input type="text" class="form-control" name="name" placeholder="name" value="{{bloc.name}}">
+        <div class="text-danger">
+            {{bloc.nameError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Libelle :</label>
+        <input type="text" class="form-control" name="libelle" placeholder="libelle" value="{{bloc.libelle}}">
+        <div class="text-danger">
+            {{bloc.libelleError}}</div>
+    </div>
+    
+
+    <div class="form-group text-center" >
+        <button type="submit" class="btn btn-success"><i class="fa fa-database"></i> Submit </button>
+        <a class="btn btn-primary" style="margin-left:5px; margin-right:5px;" href="/bloc/list"><i class="fa fa-list-alt"></i>  liste des Blocs</a>
+        <a class="btn btn-primary" href="/salle/list"><i class="fa fa-list-alt"></i>  liste des Salles</a>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+<h3 class="text-center" style="margin-bottom: 20px; ">  Ajouter une Nouvelle Salle</h3>
+
+<form action="/salle" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{salle._id}}">
+    <div class="form-group">
+        <label> Nom : </label>
+        <input type="text" class="form-control" name="name" placeholder="name" value="{{salle.name}}">
+        <div class="text-danger">
+            {{salle.nameError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Capacité : </label>
+        <input type="number" class="form-control" name="capacite" placeholder="capacite" value="{{salle.capacite}}">
+        <div class="text-danger">
+            {{salle.capaciteError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Bloc : </label>
+                <select class="form-control" name="hall" id="hall" >
+                            {{#each blocs}}
+
+                <option name={{this._id}} value={{this._id}}>{{this.name}}</option>
+                        {{/each}}
+
+                
+                </select>        
+                <div class="text-danger">
+            {{salle.capaciteError}}</div>
+    </div>
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-success"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-primary" style="margin-left:5px; margin-right:5px;"href="/salle/list"><i class="fa fa-list-alt"></i>  liste des Salles</a>
+        <a class="btn btn-primary" href="/bloc/list"><i class="fa fa-list-alt"></i>  liste des Blocs</a>
+
+    </div>
+</form>

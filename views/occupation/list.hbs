@@ -1,0 +1,55 @@
+<h3 class="text-center" style="margin-bottom: 20px; ">  Liste des Occupations</h3>
+<script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket=io();
+        var send=function(){
+            socket.emit('test',"txt");
+        }
+        var receive=function(date,salle,crenau,_id){
+
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(table.length);
+            var cell2 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+            
+            cell2.innerHTML = date;
+            cell1.innerHTML = crenau;
+            cell3.innerHTML=salle;
+            cell4.innerHTML +='<a href="/occupation/'+_id+'"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>'+' just added';
+
+        }
+        socket.on('test',receive);
+        </script>
+<table class="table table-hover"style= "border : 2px solid black; border-collapse: collapse;font-weight: bold;" >
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Creneau</th>
+            <th>Salle</th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        {{#each list}}
+        <tr>
+            <td>{{this.date}}</td>
+            <td>{{this.crenauhr}}</td>
+            <td>{{this.namesalle}}</td>
+            
+
+            
+            <td>
+                <a href="/occupation/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/occupation/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<center>
+<h3><a class="badge rounded-pill bg-light" style="width: 50%;" href="/occupation" ><i class="fa fa-plus"></i> Create New</a> </h3>
+<h3><a class="badge rounded-pill bg-light" style="width: 50%;" href="/bloc/list"><i class="fa fa-list-alt"></i> Bloc List</a></h3></center>

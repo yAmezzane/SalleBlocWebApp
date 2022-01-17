@@ -1,0 +1,23 @@
+<h3 class="text-center" style="margin-bottom: 20px; ">  Ajouter un Nouveau Creanau</h3>
+
+<form action="/crenau" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{crenau._id}}">
+    <div class="form-group">
+        <label>Heure de Debut</label>
+        <input type="time" class="form-control" name="hrdebut" placeholder="hrdebut " value="{{crenau.hrdebut}}">
+        <div class="text-danger">
+            {{crenau.hrdebutError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Heure de Fin</label>
+        <input type="time" class="form-control" name="hrfin" placeholder="hrfin" value="{{crenau.hrfin}}">
+        <div class="text-danger">
+            {{crenau.hrfinError}}</div>
+    </div>
+    
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-success"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-primary" href="/crenau/list"><i class="fa fa-list-alt"></i> View All</a>
+        
+    </div>
+</form>
